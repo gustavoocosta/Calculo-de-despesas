@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Despesas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/736x/04/73/65/047365a8e064e77d32501efc9ab0e903.jpg'); /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem de fundo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8); /* Adicione um fundo opaco para o container */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora de Despesas</h1>
+        <label for="valorDespesa">Valor da Despesa:</label>
+        <input type="text" id="valorDespesa" placeholder="Insira o valor da despesa">
+        <button onclick="calcularDespesa()">Calcular</button>
+        <div id="resultado">
+            <strong>Total de Despesas:</strong> <span id="totalDespesas">0.00</span> reais
+        </div>
+    </div>
+
+    <script>
+        function calcularDespesa() {
+            const valorDespesa = parseFloat(document.getElementById("valorDespesa").value);
+            const totalDespesas = parseFloat(document.getElementById("totalDespesas").textContent);
+
+            if (!isNaN(valorDespesa)) {
+                const novoTotal = totalDespesas + valorDespesa;
+                document.getElementById("totalDespesas").textContent = novoTotal.toFixed(2);
+                document.getElementById("valorDespesa").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
